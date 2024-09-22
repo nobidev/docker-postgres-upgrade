@@ -24,7 +24,7 @@ jobs:
       - id: generate-jobs
         name: Generate Jobs
         run: |
-          export BASHBREW_NAMESPACE='tianon'
+          export BASHBREW_NAMESPACE='nobidev'
           image="${GITHUB_REPOSITORY##*/}"
           image="${image#docker-}"
           export GITHUB_REPOSITORY="$image"
