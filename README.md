@@ -2,7 +2,7 @@
 
 This is a PoC for using `pg_upgrade` inside Docker -- learn from it, adapt it for your needs; don't expect it to work as-is!
 
-(Source for this image is available at [https://github.com/tianon/docker-postgres-upgrade](https://github.com/tianon/docker-postgres-upgrade).)
+(Source for this image is available at [https://github.com/nobidev/docker-postgres-upgrade](https://github.com/nobidev/docker-postgres-upgrade).)
 
 Tags of this image are of the format `OLD-to-NEW`, where `OLD` represents the version of PostgreSQL you are _currently_ running, and `NEW` represents the version of PostgreSQL you would like to upgrade to.
 
@@ -17,7 +17,7 @@ DIR/NEW/data
 
 $ docker run --rm \
 	-v DIR:/var/lib/postgresql \
-	tianon/postgres-upgrade:OLD-to-NEW \
+	nobidev/postgres-upgrade:OLD-to-NEW \
 	--link
 
 ...
@@ -32,7 +32,7 @@ $ find /mnt/bigdrive/postgresql -mindepth 2 -maxdepth 2
 
 $ docker run --rm \
 	-v /mnt/bigdrive/postgresql:/var/lib/postgresql \
-	tianon/postgres-upgrade:9.4-to-9.5 \
+	nobidev/postgres-upgrade:9.4-to-9.5 \
 	--link
 
 ...
@@ -48,7 +48,7 @@ If your two directories (denoted below as `PGDATAOLD` and `PGDATANEW`) do not fo
 $ docker run --rm \
 	-v PGDATAOLD:/var/lib/postgresql/OLD/data \
 	-v PGDATANEW:/var/lib/postgresql/NEW/data \
-	tianon/postgres-upgrade:OLD-to-NEW
+	nobidev/postgres-upgrade:OLD-to-NEW
 
 ...
 ```
@@ -59,7 +59,7 @@ More concretely, assuming `OLD` of `9.4`, `NEW` of `9.5`, `PGDATAOLD` of `/mnt/b
 $ docker run --rm \
 	-v /mnt/bigdrive/postgresql-9.4:/var/lib/postgresql/9.4/data \
 	-v /mnt/bigdrive/postgresql-9.5:/var/lib/postgresql/9.5/data \
-	tianon/postgres-upgrade:9.4-to-9.5
+	nobidev/postgres-upgrade:9.4-to-9.5
 
 ...
 ```
@@ -96,7 +96,7 @@ $ docker rm postgres-upgrade-testing
 
 $ docker run --rm \
 	-v "$PWD":/var/lib/postgresql \
-	"tianon/postgres-upgrade:$OLD-to-$NEW" \
+	"nobidev/postgres-upgrade:$OLD-to-$NEW" \
 	--link
 
 $ docker pull "postgres:$NEW"

@@ -12,8 +12,8 @@ fi
 commit="$(git log -1 --format='format:%H' HEAD)"
 
 cat <<-EOH
-	Maintainers: Tianon Gravi <tianon@tianon.xyz> (@tianon)
-	GitRepo: https://github.com/tianon/docker-postgres-upgrade.git
+	Maintainers: NobiDev <info@nobidev.com> (@nobidev), Tianon Gravi <tianon@tianon.xyz> (@tianon)
+	GitRepo: https://github.com/nobidev/docker-postgres-upgrade.git
 	GitCommit: $commit
 EOH
 
